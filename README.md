@@ -44,6 +44,7 @@ def validate_directory_path(file_path):
     except Exception as e:
         print(f"Error validating path: {e}")
         return False
+
 🛠️ Setup Instructions
 
 Prerequisites
