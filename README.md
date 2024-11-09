@@ -63,7 +63,7 @@ Ensure you have Python 3.x installed along with the following libraries:
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/yourusername/musical-broccoli.git
+   git clone https://github.com/Jodi-321/musical-broccoli.git
    cd musical-broccoli
    ```
 
