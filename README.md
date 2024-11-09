@@ -96,7 +96,7 @@ soupsieve==2.6
 To run the script, simply use:
 
 ```bash
-python scrapper.py
+python public_scraper.py
 ```
 
 ### How to Use
