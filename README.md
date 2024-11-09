@@ -45,6 +45,28 @@ def validate_directory_path(file_path):
         print(f"Error validating path: {e}")
         return False
 
+Directory Validation Example
+The validate_directory_path() function ensures the provided directory is valid and accessible:
+
+def validate_directory_path(file_path):
+    """Ensure the provided path is a valid, accessible directory."""
+    if not file_path:
+        print("Error: No directory path provided.")
+        logging.error("No directory path provided.")
+        return False
+    try:
+        abs_path = os.path.abspath(sanitize_input(file_path))
+        if not os.path.isdir(abs_path):
+            print("Error: The path is not to a valid directory.")
+            return False
+        if not os.access(abs_path, os.R_OK):
+            print("Error: Access denied.")
+            return False
+        return True
+    except Exception as e:
+        print(f"Error validating path: {e}")
+        return False
+
 🛠️ Setup Instructions
 
 Prerequisites
@@ -105,7 +127,3 @@ Improper input during selection.
 📄 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-🤝 Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or suggestions.
