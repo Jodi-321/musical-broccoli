@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3  # Used for parsing HTML/XML content
+EbookLib==0.18         # Library for reading and writing EPUB files
+lxml==5.3.0            # Fast XML and HTML parser used by BeautifulSoup
+six==1.16.0            # Utility library for Python 2 and 3 compatibility (required by EbookLib)
+soupsieve==2.6         # Used by BeautifulSoup for CSS selectors
+
