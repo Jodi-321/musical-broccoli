@@ -31,22 +31,34 @@ The `validate_directory_path()` function ensures the provided directory is valid
 
 ```python
 def validate_directory_path(file_path):
-    """Ensure the provided path is a valid, accessible directory."""
+    #Make sure user input is a valid, accessible directory. 
     if not file_path:
         print("Error: No directory path provided.")
         logging.error("No directory path provided.")
         return False
+
     try:
-        abs_path = os.path.abspath(sanitize_input(file_path))
+        # Sanitize input to remove any malicious characters
+        sanitized_path = sanitize_input(file_path
+                                        )
+        #Convert to absolute path and resolve to prevent path traversal
+        abs_path = os.path.abspath(sanitized_path)
+
+        # Check if the path is a directory
         if not os.path.isdir(abs_path):
+            logging.error(f"Provided path is not a directory: {file_path}")
             print("Error: The path is not to a valid directory.")
             return False
+        
+        # Check if the directory is accessible
         if not os.access(abs_path, os.R_OK):
-            print("Error: Access denied.")
+            logging.error(f"Access denied for directory: {file_path}")
+            print("Error: You do not have permission to access this directory.")
             return False
         return True
     except Exception as e:
-        print(f"Error validating path: {e}")
+        logging.error(f"Error validating directory path: {e}")
+        print(f"Error: {e}")
         return False
 ```
 
